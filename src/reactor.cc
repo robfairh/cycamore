@@ -548,6 +548,8 @@ void Reactor::RecordSideProduct(bool produce){
           ->AddVal("Product", side_products[i])
           ->AddVal("Value", value)
           ->Record();
+
+      cyclus::toolkit::RecordTimeSeries<double>("supply" + side_products[i], this, value);
     }
   }
 }
